@@ -1,0 +1,16 @@
+version: '3.7'
+
+services:
+  server:
+    image: inakigarciat/tarea4-server
+    environment:
+      - ORACLE_CONN_STRING=sys/inaki@//oracle:1521/FREE as sysdba
+    ports:
+      - '5050:5050'
+
+  oracle:
+    image: container-registry.oracle.com/database/free:latest
+    environment:
+      - ORACLE-PWD=inaki
+    ports:
+      - '1521:1521'
